@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: add-tech-admin-panel
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+        envers:
+          autoRegisterListeners: true
+  flyway:
+    enabled: false
+    locations: classpath:db/migration
+
+app:
+  jwt:
+    token:
+      secret: jWt5upeRsECretKEy
+      expiration: 360000000
+      refreshExpirationMs: 360000000
+
+
+springdoc:
+  swagger-ui:
+    path: docs
+    operations-sorter: alpha
+    tags-sorter: alpha
+    enabled: true
+    csrf:
+      enabled: true
+myApp:
+  API_URL: http://5.59.232.107:8085/api/v1/admin/
